@@ -1,0 +1,30 @@
+<script>
+    //西元閏年,被 4 整除 但被 100 整除的不閏; 若被 400 整除的要閏
+    function doThing(){
+        let year = document.getElementById("year").value;
+        year = parseInt(year);
+        let isOK = false;
+        if (year % 4 == 0){
+            if (year % 100 == 0){
+                if (year % 400 == 0){
+                    //29
+                    isOK = true;
+                }else{
+                    //28
+                    isOK = false;
+                }
+            }else{
+                //29
+                isOK = true;
+            }
+    }else{
+        //28
+        isOK = false;
+    }
+    document.getElementById('result').innerHTML = 
+        isOK?'閏年':'平年'; //三元運算式
+}
+</script>
+ <input type="number" id="year">
+ <input type="button" value="是否為閏年?" onclick="doThing()">
+ <span id="result"></span>
