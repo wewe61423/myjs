@@ -20,9 +20,10 @@ document.write(typeof(var1) + "<br>");
 //Assignment 指派
 
 const name = 'Peggy';
-//name = 'Mike'; 常數不可變更、不能有指派的行為
+//若此時執行 name = 'Mike'; 會失敗，因常數不可變更、不能有指派的行為
 
 document.write("My name is " + name + "<br>");
 document.write(`My name is ${name}<br>`);
-let a = 10, b=3;
+let a = 10,
+    b = 3;
 document.write(`${a} + ${b} = ${a+b}`);

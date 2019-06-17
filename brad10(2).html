@@ -1,31 +1,28 @@
 <script>
-        let month = parseInt( Math.random()*12)+1;
-        document.write(month + "月" + "有")
-        switch (month){
-            case 1: 
-            case 3: 
-            case 5: 
-            case 7: 
-            case 8: 
-            case 10: 
-            case 12: 
-                document.write("<b>31天</br>");
-                break;
-            case 2:
-                document.write("28 天");
-                break; 
-            case 4: 
-            case 6: 
-            case 9: 
-            case 11:
-                document.write("30天");
-                break;
-            default: //default 不是必要且不一定要在最後才放
-                document.write("錯誤~");
-                break; 
-            
-        }
-        
-    
-    
-    </script>
+    let month = parseInt(Math.random() * 12) + 1;
+    document.write(month + "月" + "有 ")
+    switch (month) {
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
+            document.write("<b>31 天</br>");
+            break;
+        case 2:
+            document.write("28 天");
+            break;
+        case 4:
+        case 6:
+        case 9:
+        case 11:
+            document.write("30 天");
+            break;
+        default: //default 不是必要且不一定要在最後才放
+            document.write("錯誤~");
+            break;
+
+    }
+</script>

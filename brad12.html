@@ -1,12 +1,12 @@
 <script>
-    for (let i=0; i<10; i++){
-        if (i % 2 == 0){
-            continue;
+    for (let i = 0; i < 10; i++) {
+        if (i % 2 == 0) { //0.1.2.3.4.5.6.7
+            continue; //當 i % 2 ==0 時，跳出此次 for 迴圈，進行下一次
         }
         document.write(i + "<br>")
-        if (i == 7){
+        if (i == 8) {
             break;
         }
     }
-    document.write('Game Over -V-');
+    document.write('THE END');
 </script>

@@ -1,21 +1,19 @@
 <script>
-    function myinit(){
-        document.write("Hello, Kitty<br><hr>");
+    function myinit() {
+        document.write("Hello, Kitty2<br><hr>");
     }
-    function drawLine(){
+
+    function drawLine() {
         document.write("<hr>");
     }
 
 
-    let i =0;
-    for (myinit(); i <10 ; drawLine()){  //此時 i 為區域變數，超出 for 迴圈若沒宣告，就會 undefined
+    let i = 0;
+    for (myinit(); i < 10; drawLine()) { //此時 i 為區域變數，超出 for 迴圈若沒宣告，就會 undefined
         document.write(i++ + "<br>");
 
     }
-    
+
     document.write("<hr><hr>");
     document.write(i);
-
-
-
 </script>
