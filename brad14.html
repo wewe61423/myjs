@@ -1,0 +1,12 @@
+<script>
+    let p = [0,0,0,0,0,0,0]; //p[0] = 0, p[1] = 0, ..., p[5] = 0;
+    for (let i=0; i<100; i++){
+        let rand = parseInt(Math.random()*9)+1; //1~6
+        p[rand <=6 ?rand:rand-3]++;
+    }
+
+    for (let i=1; i < p.length; i++){
+        document.write(`${i} 點 : 共骰出 ${p[i]} 次` + "<br>");
+    }
+
+</script>

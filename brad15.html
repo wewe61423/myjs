@@ -1,0 +1,12 @@
+<script>
+
+    let a = [1,2,3,4,5];
+    a[10] = 11;
+    for (let i=0; i<a.length; i++){ //a[0-10] 都會列出
+        document.write(a[i] + "<br>");
+    }
+    document.write("<hr>");
+    for (let i in a){ //僅顯示有值的
+        document.write(a[i] + "<br>");
+    }
+</script>
