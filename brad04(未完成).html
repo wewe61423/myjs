@@ -4,16 +4,16 @@
         let opVal = op.selectedIndex;  //已選擇 selet 的 index 為多少
         alert("type is : " + typeof(opVal) + " & selectedIndex is  "+ opVal + ">>>>>click confirm!"); //透過 alert 確認 opVal 的 type 與值
 
-        switch (opVal){ //將 select 的加減乘除進行運算
-            case 0:
+        // switch (opVal){ //將 select 的加減乘除進行運算
+        //     case 0:
                 
-            case 1:
+        //     case 1:
 
-            case 2:
+        //     case 2:
 
-            case 3:
+        //     case 3:
 
-        }
+        // }
 
         let x = document.getElementById("x").value;
         //從這份文件取得 id 為 x 的物件(值)
@@ -36,5 +36,5 @@
     <option>/</option>
 </select>
 <input type="number" id="y" />
-<input type="button" value="=" onclick="doCal()"/>
+<input type="button" value="=" onclick="doCal()" />
 <span id="result"></span>
