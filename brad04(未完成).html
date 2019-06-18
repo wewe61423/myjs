@@ -2,18 +2,7 @@
     function doCal(){
         let op = document.getElementById("op"); //取得 select 的值
         let opVal = op.selectedIndex;  //已選擇 selet 的 index 為多少
-        alert("type is : " + typeof(opVal) + " & selectedIndex is  "+ opVal + ">>>>>click confirm!"); //透過 alert 確認 opVal 的 type 與值
-
-        // switch (opVal){ //將 select 的加減乘除進行運算
-        //     case 0:
-                
-        //     case 1:
-
-        //     case 2:
-
-        //     case 3:
-
-        // }
+        // alert("type is : " + typeof(opVal) + " & selectedIndex is  "+ opVal + ">>>>>click confirm!"); //透過 alert 確認 opVal 的 type 與值
 
         let x = document.getElementById("x").value;
         //從這份文件取得 id 為 x 的物件(值)
@@ -22,9 +11,24 @@
         let result = document.getElementById("result");
         x = parseInt(x); //將字串轉為數字
         y = parseInt(y);
-        let z1 = parseInt(x / y);
-        let z2 = x % y;
-        result.innerHTML = z1 + "......" + z2;
+        switch (opVal){ //將 select 的加減乘除進行運算
+            case 0:
+        result.innerHTML = (x + y);
+        break;
+            case 1:
+        result.innerHTML =  (x - y);
+        break;
+            case 2:
+        result.innerHTML = (x * y);
+        break;
+            case 3:
+        result.innerHTML = (x / y);
+        break;
+        }
+
+        // let z1 = parseInt(x / y);
+        // let z2 = x % y;
+        // result.innerHTML = z1 + "......" + z2;
         //ex: 10/3=3......1
     }
 </script>
