@@ -1,0 +1,33 @@
+<script src="bradapis.js"></script>
+<script>
+    // document.write("練習正規表示法搜尋身分證字號: <br>");
+    // let id = 'L223456789';
+    // //let regex = /正規表示法寫這裡/(參數寫外面);
+    // //let regex = /A/g;                     //1.把A找出來。2.加 g 就是全域搜尋
+    // let regex = /^[A-Z][12][0-9]{8}$/;      
+    // //1.[A-Z]把英文都找出來。2.^[A-Z]把字串第一個字是英文的找出來。3.[12]第二碼要為1 or 2。4.[0-9]{8} 後面八碼都是數字
+    // let result = id.match(regex);
+    // if (result == null){
+    //     document.write("none");
+    // }else{
+    //     for (let v of result){
+    //         document.write(v + "<br>");
+    //     }
+    // }
+
+    function ckId(){
+        let id = document.getElementById('id').value;
+        let isRight = checkTWId(id);
+        if (!isRight){
+            alert('無效的身分證字號(請輸入英文大寫+9碼數字)');
+        }else{
+            alert('為有效身分證字號');
+        }
+    }
+
+
+</script>
+<p style="font-family:Microsoft JhengHei; font-size:22px; font-weight:bold;"><font color="#008B8B">台灣身分證驗證</font></p>
+<input type="text" id="id" />
+<input type="button" value="確認" onclick="ckId()" />
+<p style="font-family:Microsoft JhengHei;"> (by Peggy)</p>

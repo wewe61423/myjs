@@ -1,0 +1,25 @@
+<script>
+    
+    let counter = 0;
+    let timer;
+
+    function go(){
+        //時間到了要做的事情，1*1000=1秒鐘
+        timer = setInterval(doThing, 1*1000); 
+
+    }
+    function doThing(){
+        //把值呈現在這個地方
+        document.getElementById('counter').innerHTML = counter++;
+    }
+    function stopGame(){
+        //清除由 timer 負責操控的動作
+        clearInterval(timer);  
+    }
+
+</script>
+<h3 style="font-family:Microsoft JhengHei;">Timer : <span id ='counter'></span></h3>
+
+<hr>
+<input type="button" value="執行 GO!" onclick="go()" />
+<input type="button" value="停止 STOP!" onclick="stopGame()" />

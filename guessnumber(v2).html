@@ -1,0 +1,58 @@
+<script src="bradapis.js"></script>
+<script>
+//猜數字遊戲 1A2B 
+//(猜數字，若有該數字且位子相同為A，有該數字但位子不同為B)
+//此案例在玩字串、function
+//開啟開發人員工具可以先看到答案，驗證該程式是否正確
+let answer = createAnswer(4);
+console.log(answer);
+let log = '';
+function doGuess(){
+    let guessElement = document.getElementById('guess');
+    let guess = guessElement.value;
+    let result = checkAB(answer, guess);
+
+    if (result == 3 + 'A0B'){
+        alert('You WIN.');
+        reset();
+    }else if(times == 10){
+        alert('Loser: answer is ' + answer);
+        reset();
+    }else{
+            alert(result);
+    
+    }
+    log += guess + "->->->" + result + "<br>";
+    document.getElementById('log').innerHTML = log;
+    document.getElementById('guess').value = '';
+    document.getElementById('guess').focus(); //對焦
+}
+
+function reset(){
+    if (!confirm('確定要重玩嗎?')) return; //確定不要 reset 就 return;
+    answer = createAnswer(3);
+    log = '';
+    times = 0;
+    document.getElementById('log').innerHTML = log;
+    document.getElementById('guess').value = '';
+    document.getElementById('guess').focus(); //對焦
+}
+</script>
+<h1 style="font-family:Microsoft JhengHei;"><font color="#008B8B">猜數字遊戲 V2.</font></h1>
+<p style="font-family:Microsoft JhengHei;"><font color="#008B8B">Guess Number Game V2.</font></p>
+<hr>
+<span style="font-family:Microsoft JhengHei;">請輸入四碼數字: </span>
+<input type="number" id="guess" />
+<span>選擇</span>
+<select id="num">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+</select>
+<span>位數</span>
+<br><br>
+<input type="button" style="background-color: #90EE90;" onclick="doGuess()" value="開始玩吧~"/>
+<input type="button" style="background-color: #F0E68C;"" onclick="reset()" value="重玩" />
+<hr>
+<div id='log'></div>

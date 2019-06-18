@@ -1,0 +1,14 @@
+<script>
+    document.write("練習正規表示法搜尋數字: <br><br>");
+    let id = '11, 22, 333, 44, 553333, 9487048';
+    let regex = /[0-9]{1,4}/g;  //1.一次以上 {1,} 。2.一次以上、最多四次 {1,4}
+
+    let result = id.match(regex);
+    if (result == null){
+        document.write("none");
+    }else{
+        for (let v of result){
+            document.write(v + "<br>");
+        }
+    }
+</script>
