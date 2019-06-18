@@ -1,0 +1,28 @@
+<script>
+    function sayYa2(name = 'World'){
+        document.write(`Ya! ${name}<br>`);
+
+    }
+    function sayYa(ns){   //盡量讓 function 只做一件事，複雜的事拆開來
+        for (let name of ns){
+            document.write(`YA! ${name}<br>`);
+        }   
+    }
+    function sayYa3(...names){   //用三個點加上變數名稱 
+        // document.write(typeof names + ", is array? >  " + Array.isArray(names) + "<br>"); //印出型態與是否為陣列
+        for (let name of names){
+            document.write(`YA! ${name}<br>`); //不傳值不輸出
+        }   
+    }
+
+    let names = ['Brad', 'Tony', 'Peter'];
+    sayYa(names); //呼叫 function
+    sayYa2();
+    sayYa2('Brad2');
+    sayYa3();
+    sayYa3('A');
+    sayYa3('A', 'B', 'C');
+    
+    // sayYa('Peggy');
+    // sayYa('Mike');
+</script>

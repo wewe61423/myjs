@@ -1,0 +1,21 @@
+<script>
+let poker =[];
+let rand; // 0-51 得先產生亂數
+let isRepeat;           //預設無重複
+for (let i=0; i<52; i++){ //從0開始跑52圈
+    do{
+        rand = parseInt(Math.random()*52);
+        isRepeat = false;
+        for (let j=0; j<i; j++){        //比對到前一個
+            if (poker[j] == rand){  
+                isRepeat = true;        //重複了,break;
+                break;
+            }
+        }
+    }while(isRepeat);
+    poker[i] = rand;
+}
+for (let i in poker){
+    document.write("舖克牌: " + poker[i] + "<br>");
+}
+</script>

@@ -1,0 +1,49 @@
+<script>
+    let poker = [];
+    for (let i=0; i<52; i++) poker[i]=i;
+    for (let i = poker.length-1; i>0; i--){
+        let rand = parseInt(Math.random()*(i+1));
+        [poker[i], poker[rand]] = [poker[rand], poker[i]];
+
+    }
+    // for (let i in poker){
+    // document.write("舖克牌: " + poker[i] + "<br>");
+    // }
+    //以上是洗牌
+    document.write("<hr");
+    //以下是發牌
+    let players = [[],[],[],[]];
+    for (let i=0; i<poker.length; i++){
+        players[i%4][parseInt(i/4)] = poker[i]; //發牌到四個玩家手上
+        
+    }
+    // for (let i in players) document.write(players[i] + "<br>"); //尋訪 players
+    document.write("<hr><br>");
+    //0-12黑桃, 13-25愛心, 26-38方塊, 39-51梅花
+</script>
+
+<table width="100%" border="1" style="border-collapse: collapse">
+    <tr>
+        <script>
+            let suits = ['&spades;', '&hearts;', '&diamondsuit;', '&clubs;']; //花色:黑桃、愛心、方塊、梅花
+            let nums = ['A',2,3,4,5,6,7,8,9,10,'J','Q','K']; //牌面數字: 1~13
+            for(let playerOne of players){      //一家一家尋訪
+                playerOne.sort(function(a,b){return a-b;}); //理牌
+                document.write("<tr>");
+                for (let card of playerOne){ //第__家玩家手上的牌
+                    if(parseInt(card/13)==1 || parseInt(card/13)==2){ //判斷哪些牌要顯示什麼顏色
+                        document.write("<td style='color:red'>");
+                    }else{
+                        document.write("<td style='color:black'>");
+                    }
+                    document.write(suits[parseInt(card/13)] + nums[card%13]); //取得花色與值並印出
+                    document.write("</td>");
+                }
+                document.write("</tr>");
+        }
+        </script>
+    </tr>
+    
+
+
+</table>

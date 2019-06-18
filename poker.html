@@ -1,22 +1,24 @@
 <script>
+     //舖克牌洗牌(不重複)
     let poker =[];
-    for (let i=0; i<52; i++){
-        let rand = parseInt(Math.random()*52); // 0-51
+    for (let i=0; i<52; i++){ //從0開始跑52圈
+        let rand = parseInt(Math.random()*52); // 0-51 得先產生亂數才有檢查機制
         //檢查是否重複
         //檢查機制
-        for (let j=0; j<i; j++){
-            if (poker[j] == rand){
-                poker[i] = rand;//重複了
+        let isRepeat = false; //預設無重複
+        for (let j=0; j<i; j++){     //比對到前一個
+            if (poker[j] == rand){  
+                isRepeat = true;   //重複了,break;
+                break;
             }
+        }
+        if (isRepeat){  //如果重複了(isRepeat = true)
+            i--;
+            continue; //以下敘述句不用進行
         }
         poker[i] = rand;
     }
-    
     for (let i in poker){
-        document.write(poker[i] + "<br>");
-
+        document.write("舖克牌: " + poker[i] + "<br>");
     }
-    
-
-
 </script>

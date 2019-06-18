@@ -1,0 +1,12 @@
+<script>
+let a = [0, 1, 2, 3, 4, 5];
+
+for (let i=0; i<a.length; i++) document.write(a[i] + "<br>"); 
+document.write("<hr>");
+
+for (let i in a) document.write(a[i] + "<br>"); //尋訪 a ，避開 undefined
+document.write("<hr>");
+
+for (let v in a) document.write(v + "<br>"); //不保證其順序性
+
+</script>
