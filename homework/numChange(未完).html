@@ -1,0 +1,32 @@
+<script>
+    let inputNum = '9876543210';
+    let chineseNumber = new Array('零', '壹', '貳', '參', '肆', '伍', '陸', '柒', '捌', '玖');
+    let unit = new Array('', '元', '十', '百', '千'); //元是單位
+    let unit_spec = new Array('', '十', '百', '千'); //元是單位 破千用的
+    let result = '';
+    let thisNum;
+
+    for (i = inputNum.length - 1; i >= 0; i--) {
+        thisNum = inputNum.substr(i, 1);
+        if (thisNum == 0 && inputNum.substr(i + 1, 1) == 0) {
+            continue;
+        }
+        if (inputNum.length - i == 5) {
+            result = '萬' + result;
+        }
+        if (inputNum.length - i == 9) {
+            result = '億' + result;
+        }
+        if (thisNum != 0) {
+            if ((inputNum.length - i) < 5) {
+                result = unit[(inputNum.length - i) % 5] + result;
+            } else {
+                result = unit_spec[(inputNum.length - i - 1) % 4] + result;
+            }
+        }
+        result = chineseNumber[thisNum] + result;
+    }
+    console.log(result);
+</script>
+<input type="number" id="inputNum"/>
+<span id="result"></span>

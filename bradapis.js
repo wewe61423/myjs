@@ -15,8 +15,8 @@ function checkTWId(id){
         let n3 = parseInt(id.substr(1,1)); 
         let n4 = parseInt(id.substr(2,1));
         let n5 = parseInt(id.substr(3,1));
-        let n6 = parseInt(id.substr(4,1));
         let n7 = parseInt(id.substr(5,1));
+        let n6 = parseInt(id.substr(4,1));
         let n8 = parseInt(id.substr(6,1));
         let n9 = parseInt(id.substr(7,1));
         let n10 = parseInt(id.substr(8,1));

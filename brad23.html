@@ -16,8 +16,8 @@
     // }
 
     function ckId(){
-        let id = document.getElementById('id').value;
-        let isRight = checkTWId(id);
+        let inputId = document.getElementById('inputId').value;
+        let isRight = checkTWId(inputId);
         if (!isRight){
             alert('無效的身分證字號(請輸入英文大寫+9碼數字)');
         }else{
@@ -28,6 +28,6 @@
 
 </script>
 <p style="font-family:Microsoft JhengHei; font-size:22px; font-weight:bold;"><font color="#008B8B">台灣身分證驗證</font></p>
-<input type="text" id="id" />
+<input type="text" id="inputId" />
 <input type="button" value="確認" onclick="ckId()" />
 <p style="font-family:Microsoft JhengHei;"> (by Peggy)</p>
