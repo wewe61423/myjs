@@ -5,6 +5,9 @@
         border-radius: 5px;
         background-color: #22ca92;
         font-family:Microsoft JhengHei;
+        width:80px;
+        height:30px;
+        font-weight: bolder;
     }
     .bodyTitle{
         font-family:Microsoft JhengHei; 
@@ -21,11 +24,17 @@
         font-family:Microsoft JhengHei;
         color:#22ca92;
     }
+    #result{
+        font-family:Microsoft JhengHei; 
+        font-weight:bold;
+        color:#3eb9df
+    }
     #content{
             margin: 0; 
             padding: 0; 
             height: 100%;
-            background-color: dimgrey;
+            background-color: #504d4d;
+            padding:15px 20px;
     }
     html, body{
         margin: 0;
@@ -52,12 +61,12 @@
                 <span class="caption">請輸入任一數字 </span>
                 <input type="number" id="inputNum" />
                 <input type="button" id="submitNum" class="subminNum" value="是否為質數" onclick="checkNum(this)" />
-                <br><br>
+                <br>
             </td>
         </tr>
         <tr>
             <td>
-            <span id="result" style="font-family:Microsoft JhengHei; color:rgb(223, 124, 137)"></span>
+            <span id="result" ></span>
         </td>
         </tr>
     </table>
