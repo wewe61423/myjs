@@ -31,20 +31,19 @@ table.setAttribute('width','100%');     //table.width = '100';
 // td4.innerHTML = 'OK4';
 
 //迴圈寫法
-for (let k = 0; k<2; K++){
+for (let k=0; k<2; k++){
     let tr = document.createElement('tr');
     table.appendChild(tr);
-
     for (let i=2; i<6; i++){
         let td = document.createElement('td');
         tr.appendChild(td);
-        let newi = i + k *4;
-        for (let j=1; j<=9; j++){
-            td.innerHTML += `${newi} X ${j} = ${newi * j} <br>`;
+        let newi = i + k * 4;
+        for (let j =1; j<=9; j++){
+            td.innerHTML += `${newi} x ${j} = ${newi*j}<br>`;
         }
-        
     }
 }
+
 // for (let i=6; i<10; i++){
 //     let td2 = document.createElement('td');
 //     tr2.appendChild(td2);
