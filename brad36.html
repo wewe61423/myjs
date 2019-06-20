@@ -1,0 +1,22 @@
+<script>
+let obj = {         //物件
+    name: 'Brad',
+    age: 18
+}
+
+document.write(obj.name + ":" + obj.age + "<br>");
+
+// let obj1 = obj.constructor();   //呼叫 obj 的建構式
+
+//複製物件的方式
+let obj1 = new Object();
+document.write(obj1.name + ":" + obj1.age + "<br>");    //此時會 undefined
+for (let attr in obj){          //從 obj for in 近來
+    obj1[attr] = obj[attr];     //把 obj 的屬性複製過來
+
+}
+document.write(obj1.name + ":" + obj1.age + "<br>");    //此時成功複製 obj 的東西
+
+
+
+</script>

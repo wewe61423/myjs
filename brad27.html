@@ -1,0 +1,73 @@
+<!-- 屬性可變動式的實作 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    #mytext{
+        height: 100%;
+        text-align: center; 
+        font-weight: bolder; 
+        font-family:Microsoft JhengHei; 
+        color: #41cde6; 
+        background-color: #696969;
+    }
+    #putext{
+        height: 5%;
+        background-color: #696969;
+    }
+    html, body{
+        margin: 0;
+        padding: 0; 
+        height: 100%; 
+        border:none; 
+    }
+    *{
+        margin: 0;
+    }
+</style>
+<body>
+    
+<div id="putext">
+        <select name="textAlign" id="textAlign" onchange="chAlign()"> 
+        <option value=''>--default--</option>
+        <option value='left'>Left</opttion>
+        <option value='right'>Right</option>
+        <option value='center'>Center</option>
+        </select>
+        <input type="button" value="送出" onclick="test()" />
+</div>
+<div id="mytext" >
+    <!-- div 為一個區塊 -->
+    
+    Hello, World. 
+</div>
+
+
+<script>
+    function test(){
+        let mytext = document.getElementById('mytext');
+        // document.write('OK'); 這樣的作法是開了一個全新畫面來輸出，所以前面的東西都會不見
+        for (let key in mytext.style){
+            console.log(key + ":" + mytext[key]);   //印出他有哪些 key (除錯可用 console.log 的方式)
+
+        }
+
+    }
+
+    function chAlign(){
+        let mytext = document.getElementById('mytext');
+        let style = document.getElementById('textAlign');
+        mytext.style[style.name] = style.value;
+
+    }
+
+</script>
+
+</body>
+</html>
+

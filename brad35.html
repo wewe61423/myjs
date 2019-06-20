@@ -1,0 +1,68 @@
+<canvas id="canvas" width="1600" height="800" style="border:1px solid #696969"></canvas>
+<script src="bradapis.js"></script>
+<script>
+    let ctx = canvas.getContext('2d');  //對畫布做渲染
+    let ballX = 28, ballY = 28;     //屬於比較沒有彈性的作法
+    let dx =16; dy =16;             //屬於比較沒有彈性的作法
+    let bg = new Image();
+    bg.src = 'wallpaper.jpg';
+
+    let ball1 = new Image();
+    let ball2 = new Image();
+    let ball3 = new Image();
+    let ballImg = [ball1, ball2, ball3];
+    let balls = [];
+
+    bg.onload = function(){     //設定畫布底圖
+        ctx.drawImage(bg, 0, 0, canvas.width, canvas.height);
+        ball1.src = "star.png";
+        ball2.src = "star2.png";
+        ball3.src = "star3.png";
+        // ball.onload = function(){ //先畫底圖再畫球，把球圖放在底圖上
+        //     ctx.drawImage(ball, ballX, ballY);
+        // }
+    }
+
+    function refreshView(){     //可以讓它不斷地重新繪製
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        ctx.drawImage(bg, 0, 0);
+        
+        for (let i=0; i<balls.length; i++){ //任何時候我想看到的邏輯寫在這邊
+            ctx.drawImage(ballImg[balls[i].img], balls[i].x, balls[i].y);
+        }
+    }
+    
+    function go(){  //讓球可以移動的動作
+        for (let i=0; i<balls.length; i++){
+            moveBall(balls[i]);
+        }
+    }
+
+    function moveBall(obj){
+        if (obj.x < 0 || obj.x + 48 > canvas.width){  //48是球的 px
+            obj.dx *= -1;
+        }
+        if (obj.y < 0 || obj.y + 48 > canvas.height){
+            obj.dy *= -1;
+        }
+        obj.x += obj.dx
+        obj.y += obj.dy;
+    }
+
+    canvas.onmousedown = function(e){
+        let ballObj ={
+            x: e.offsetX - 24,
+            y: e.offsetY - 24,
+            dx: 10,
+            dy: 10,
+            img: parseInt(Math.random()*3)  //多一個屬性給多張圖
+        }
+        balls[balls.length] = ballObj;
+    }
+
+    setInterval(refreshView, 30);
+    setInterval(go, 60);
+
+</script>
+<hr>
+<input type="button" onclick="go()" value="手動移動"/>

@@ -1,0 +1,59 @@
+<script>
+//試用自行定義 body 建立表格；再進階寫成九九乘法表
+let body =document.createElement('body');
+document.body = body;
+
+let head = document.createElement('h1');    
+head.innerHTML = "Brad Big Company";
+document.body.appendChild(head); 
+
+let table = document.createElement('table');
+body.appendChild(table);
+table.setAttribute('border','1');       //table.border = '2';
+table.setAttribute('width','100%');     //table.width = '100';
+// let tr = document.createElement('tr');
+// table.appendChild(tr);
+// let tr2 = document.createElement('tr');
+// table.appendChild(tr2);
+// let td = document.createElement('td');
+// tr.appendChild(td);
+// td.innerHTML = 'OK';
+// let td2 = document.createElement('td');
+// tr.appendChild(td2);
+// td2.innerHTML = 'OK2';
+// let tr2 = document.createElement('tr');
+// table.appendChild(tr2);
+// let td3 = document.createElement('td');
+// tr2.appendChild(td3);
+// td3.innerHTML = 'OK3';
+// let td4 = document.createElement('td');
+// tr2.appendChild(td4);
+// td4.innerHTML = 'OK4';
+
+//迴圈寫法
+for (let k = 0; k<2; K++){
+    let tr = document.createElement('tr');
+    table.appendChild(tr);
+
+    for (let i=2; i<6; i++){
+        let td = document.createElement('td');
+        tr.appendChild(td);
+        let newi = i + k *4;
+        for (let j=1; j<=9; j++){
+            td.innerHTML += `${newi} X ${j} = ${newi * j} <br>`;
+        }
+        
+    }
+}
+// for (let i=6; i<10; i++){
+//     let td2 = document.createElement('td');
+//     tr2.appendChild(td2);
+    
+//     for (let j=1; j<=9; j++){
+//          //如果文字內容較沒有特殊意義，用 innerHTML 帶入即可(EX: td.innerHTML = 'OK';)
+//         td2.innerHTML += `${i} X ${j} = ${i*j} <br>`;
+//     }
+    
+    
+// }
+</script>

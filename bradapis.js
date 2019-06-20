@@ -55,3 +55,15 @@ function checkAB(ans, gus){                     //盡量讓 function 越獨立�
     return a + 'A' + b + 'B';
 
 }
+
+//複製物件的方法
+function clone(source){ //source 表示原始物件
+    
+    if (typeof(source) != 'object') return null;
+
+    let target = new Object();  //新的物件實體
+    for (let attr in source){
+        target[attr] = source[attr];
+    }
+    docu
+}

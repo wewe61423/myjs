@@ -1,0 +1,22 @@
+<script>
+//陣列的用法(深入版)。陣列也是物件。
+let a1 = [];        // 較不建議這麼寫: let a1 = new Array(1,2,3);
+a1['name'] = 'Brad';
+a1['age'] = 18;
+a1['eat'] = function(){
+    document.write(this.name + " is eating food. <br><hr>");
+}
+
+a1.eat(); //括號>>呼叫，會印出 Brad is eating food.
+
+//return 一般是回傳一個值；
+function test(){
+    let aa = 123;
+    let bb = 'Brad';
+    let cc = 12.3;
+    return [aa, bb, cc];    //return 多個值
+}
+let [x,y,z] = test();       //呼叫test並將 aa,bb,cc 的值，按照順序放置在 x,y,z 
+document.write(x + ":" + y + ":" + z);  //印出x,y,z 會顯示當初 aa,bb,cc 的值
+
+</script>

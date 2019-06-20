@@ -1,0 +1,33 @@
+<script>
+    function test1(){
+        let n = parseInt(Math.random()*101); //亂數取整數
+        document.write(n + "<br>");
+
+        try{
+            test2(n);
+            document.write("及格 <br>");
+        }catch(e){                  //例外發生了要去處理
+            document.write("QQ !! 不及格 <br>");
+            return;                 //即使這邊提早離開，後面的敘述不執行，finally 一定會執行
+        }finally{                   //有無產生例外，都需要在這邊處理
+            document.write('finally');
+        }
+
+        document.write('finally2'); //若提早 return 就不會執行到這一列
+        
+    }
+    function test2(a){
+        if (a>=60){
+            document.write("安安~恭喜及格囉! <br>");
+        }else{
+            throw "Ooooops!!出錯";    //丟出(訊息會出現在開發人員工具 console)
+        }
+
+        
+    }
+
+</script>
+
+
+
+<input type="button" value="點點看" onclick="test1()"/>

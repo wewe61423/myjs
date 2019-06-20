@@ -1,0 +1,68 @@
+<script>
+//介紹物件導向
+//目前使用 ES5 的寫法
+//表單也可以做成一個物件
+//物件>>成員 Member>>屬性=值，方法=function
+let bike = new Object();    //物件最重要的是屬性
+bike.speed = 12;        //. 代表他擁有的東西(屬性) 
+bike.gear = 2;
+//用 function 定義他的行為
+bike.upSpeed = function(){
+    //方法搭配屬性在運作(屬性的運作透過方法)
+    //this 代表本物件
+    this.speed = this.speed * this.gear * 1.2; //進行加速度
+    
+}
+bike.downSpeed = function(){
+    this.speed = this.speed * 0.7; //減速，每呼叫一次就減速一些(有帶小數點就會進入浮點運算)
+}
+
+document.write(bike.speed + "<br>");
+bike.upSpeed();                 //加速度一次
+bike.upSpeed(); bike.upSpeed(); //共加速度三次
+bike.downSpeed();               //減速度一次
+document.write(bike.speed + "<br>" + "<hr>");
+
+//另外一種寫法
+let bike2 = {       //bike2 是一個物件
+    speed: 4,
+    gear: 4,
+    upSpeed: function(){    
+        this.speed = this.speed * 1.4;
+    }
+
+};  
+document.write(bike2.speed + "<br>");
+bike2.upSpeed(); bike2.upSpeed(); bike.upSpeed(); //共加速度三次，此呼叫方式不會是一個可變動的方式，叫誰就是誰
+document.write(bike2.speed + "<br>" + "<hr>");
+
+//另一種呼叫方式
+bike2['upSpeed'] ();   //['']本身是一個方法，此方式等於 bike2.upSpeed(); 
+document.write(bike2.speed + "<br>" + "<hr>");
+//方法名稱可以是一個變動變數
+let method = 'upSpeed'; 
+bike2[method](); //直接把該變數放進去就能呼叫
+document.write(bike2.speed + "<br>" + "<hr>");
+
+//我是分隔線
+for (let key in bike2){     //key 尋訪 bike2
+    //指印出 key，會列出bike2 擁有多少成員(ex: speed.gear.upSpeed)
+    document.write(key + ":" + bike2[key] +"<br>"); //bike2[key] 看定義
+    document.write("<hr>");
+}
+//我是分隔線
+document.write("document" + "<br>");
+for (let key in document){    
+    document.write(key + ":" + document[key] +"<br>");
+
+}
+document.write("<hr>");
+//我是分隔線
+document.write("window" + "<br>");
+var brad1 = 123;    //ES6 強烈建議不要用 var
+let eric = 456;
+for (let key in window){    
+    document.write(key + ":" + window[key] +"<br>");
+}
+document.write("<hr>");
+</script>

@@ -1,0 +1,67 @@
+<script>
+//自己定義 body >> 創'元素 Element'
+let body = document.createElement('body');  //自創一個 body
+document.body = body;                       //指派剛剛自創的 body
+
+let head = document.createElement('h1');    
+// head.innerHTML = "Brad Big Company";
+// //head 與 body 產生關係，新增子關係
+// document.body.appendChild(head); //此步驟已可以在 html 顯示 head 的字串"Brad Big Company"
+
+
+//另一種寫法
+//創文字節點 createTextNode
+let h1text = document.createTextNode('Hello, World.');
+head.appendChild(h1text);
+document.body.appendChild(head); 
+
+h1text.textContent = "Hello, Brad";
+
+let hr = document.createElement('hr');
+document.body.appendChild(hr);
+
+let ul = document.createElement('ul');
+body.appendChild(ul);
+let li1 = document.createElement('li');
+li1.innerHTML = "11111111";
+ul.appendChild(li1);
+let li2 = document.createElement('li');
+li2.innerHTML = "22222222";
+ul.appendChild(li2);
+let li3 = document.createElement('li');
+li3.innerHTML = "33333333";
+ul.appendChild(li3);
+let hr2 = document.createElement('hr');
+document.body.appendChild(hr2);
+
+//迴圈寫法顯示
+let ul2 = document.createElement('ul');
+body.appendChild(ul2);
+let tempLi;
+for (let i=0; i<5; i++){
+    let li4 = document.createElement('li'); //區域變數
+    li4.innerHTML = `第 ${i+1} 個項目資料`;
+    ul2.appendChild(li4);
+
+    if (i==1) tempLi = li4;
+}
+//移除第二個項目
+ul2.removeChild(tempLi);
+
+
+//複製一個節點出來，就可多一條分隔線出來
+let hr3 = hr.cloneNode();
+body.appendChild(hr3);
+
+
+//再做一份與上面 ul 一樣的東西，使用 clone 的方式
+//只有複製物件，迴圈要再加在下面才會成功顯示
+let ul3 = ul.cloneNode();
+body.appendChild(ul3); 
+for (let i=0; i<5; i++){
+    let li4 = document.createElement('li'); //區域變數
+    li4.innerHTML = `第 ${i+1} 個項目資料`;
+    ul3.appendChild(li4);
+}
+
+</script>

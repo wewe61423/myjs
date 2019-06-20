@@ -1,0 +1,78 @@
+<!-- canvas 實作 -->
+<!-- canvas 一定要有結尾符號</canvas> -->
+<h1 id="head"></h1>
+<hr>
+<canvas id="canvas" width="480" height="320" style="border:1px solid #696969"></canvas>
+<input type="button" onclick="clearCanvas()" value="全部清除"/>
+<input type="button" onclick="moveBall()" value="移動神奇寶貝球"/>
+<script>
+    head.innerHTML = 'Peggy Big Company'; //ID 確認設定為唯一就可以這樣使用
+
+    let ctx = canvas.getContext('2d');      //會得到渲染的空間、環境
+    ctx.fillStyle = '#FF7F50';              //指定填滿的顏色
+    ctx.fillRect(50, 50, 100, 120);         //畫矩形
+
+    ctx.fillStyle = 'rgba(255,255,0,0.5)';  //填滿 & 半透明效果
+    ctx.fillRect(120, 100, 170, 170);       //畫矩形
+
+    ctx.strokeStyle = 'rgba(0,0,255)'        //不填滿，只有框
+    ctx.strokeRect(250, 100, 40, 50);
+    ctx.clearRect(15,145,60,60);
+
+    ctx.beginPath();
+    ctx.moveTo(75,35);
+    ctx.lineTo(100,75);
+    ctx.lineTo(100,25);
+    ctx.fillStyle = '#ADD8E6';
+    ctx.fill();
+
+    ctx.beginPath();
+    ctx.arc(375,75,50,0,Math.PI*2,true);     //circle
+    ctx.strokeStyle = '#20B2AA';
+    ctx.stroke();
+
+    //事件的處理、圖板簽名繪畫功能
+    let isDrag = false;
+
+    function clearCanvas(){
+        ctx.clearRect(0,0, canvas.width, canvas.height);
+    }
+
+    
+    canvas.onmouseup = function(e){
+        // console.log("mouse up");
+        isDrag = false;
+    }
+    canvas.onmousedown = function(e){
+        // console.log("mouse down" + "x:" + e.offsetX + " y:" +e.offsetY);  //offset 相對的位子
+        isDrag = true;
+        ctx.storkStyle = '#4B0082';
+        ctx.beginPath();
+        ctx.moveTo(e.offsetX, e.offsetY);
+    }
+    canvas.onmousemove = function(e){
+        // console.log("mouse moving");
+        if (isDrag){            //透過此方法做出 drag 事件
+            // console.log( "x:" + e.offsetX  + " y:" + "," + e.offsetY);
+            ctx.lineTo(e.offsetX, e.offsetY);
+            ctx.stroke();
+        }
+    }
+    
+    //顯示圖片
+    let ball = new Image();
+    ball.src = "pokemon.png";
+    ball.onload = function (){  //這樣圖片才會印出來
+        ctx.drawImage(ball, 40, 240);
+        ctx.drawImage(ball, 140, 240);
+        ctx.drawImage(ball, 240, 240);
+        ctx.drawImage(ball, 340, 240);
+    }
+
+    //移動神奇寶貝球
+    function moveBall(){
+        ctx.clearRect(40,240,48,48);
+        ctx.drawImage(ball, 0, 0);
+
+    }
+</script>
