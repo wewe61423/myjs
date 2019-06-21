@@ -1,0 +1,25 @@
+<script>
+let bike = function(){      //建構式本身就是一個方法，new >>> 屬性初始化
+    console.log("new a bike.");
+    this.a = 12;
+    this.b = 34;
+}
+
+//從 protoype 進行擴充的行為
+let b1 = new bike();    
+
+bike.prototype.x = 111;     
+console.log(b1.x);
+
+bike.prototype.b = 222;     
+console.log(b1.b);      //shadow 
+
+let b2 = new bike();
+b2.a = 56; b2.c = 78;
+console.log(b2.a);      //56(以後面更動的值為主)
+console.log(b2.b);      //34
+console.log(b2.c);      //78(後面才新增的屬性)
+console.log(b2.x);      //111
+
+
+</script>

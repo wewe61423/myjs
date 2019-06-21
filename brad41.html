@@ -1,0 +1,39 @@
+<meta charset="UTF-8">
+<script src ="bradapis.js"></script>
+<script>
+//印出目前時間
+//星期___ 的 function 放在 bradapis.js
+//getTWYear >> 民國____年(function 放在 bradapis.js)，若要用西元年就用 getFullYear
+function showNow(){
+    let now = new Date();
+    let nowString = "民國" +　now.getTWYear() + "年 " + (now.getMonth()+1) + "月 " +
+         now.getDate() + "日 " + now.getHours() + "點 " + now.getMinutes() + "分 " +
+         now.getSeconds() + "秒 ，" +　now.getChineseWeek();  
+        
+    
+    document.getElementById('now').innerHTML = nowString; 
+
+}
+setInterval(showNow, 500);
+
+//ceil(x): 正數比 3 多一些無條件進位為 4 (ex: 3.4 會取為 4，但負數若 -3.4 會取 -3)
+let a1 = 3.4;
+let a2 = 3;
+let a3 = 3.7;
+let a4 = -3.4;
+let a5 = -3;
+console.log(a1 + ">>>" +Math.ceil(a1)); //4
+console.log(a2 + ">>>" +Math.ceil(a2)); //3
+console.log(a3 + ">>>" +Math.ceil(a3)); //4
+console.log(a4 + ">>>" +Math.ceil(a4)); //-3
+console.log(a5 + ">>>" +Math.ceil(a5)); //-3
+
+console.log(a1 + ">>>" +Math.round(a1)); //3
+console.log(a2 + ">>>" +Math.round(a2)); //3
+console.log(a3 + ">>>" +Math.round(a3)); //4
+
+//floor(X)
+</script>
+
+<span style="font-family:Microsoft JhengHei; color: #556b2f; font-weight: bolder"> 當前日期時間: </span> 
+<span id="now" style="font-family:Microsoft JhengHei; color: #415224; font-weight: bolder""></span>

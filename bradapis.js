@@ -63,7 +63,23 @@ function clone(source){ //source 表示原始物件
 
     let target = new Object();  //新的物件實體
     for (let attr in source){
-        target[attr] = source[attr];
+        if(typeof source[attr] != 'object'){
+            target[attr] = source[attr];        //若不是物件，執行這行
+        }else{
+            target[attr] = clone(source[attr]); //若是物件，複製 source[attr]
+        }
     }
-    docu
+    return target;
+}
+
+//取得中文的星期幾
+Date.prototype.getChineseWeek = function(){    
+    let w = this.getDay();
+    let dayList = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'];
+    return dayList[w];
+}
+
+//取得中文民國____年
+Date.prototype.getTWYear = function(){
+    return this.getFullYear() - 1911;
 }

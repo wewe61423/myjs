@@ -1,0 +1,44 @@
+<meta charset="UTF-8">
+<script>
+//將字串轉為物件並透過 console 輸出
+let jsonString =`[
+  {
+    "labels": "",
+    "classNo": 1,
+    "className": "屏東縣里港鄉蔬菜產銷班第19班",
+    "orgNo": 280,
+    "orgName": "里港鄉農會",
+    "mainClassNo": 3,
+    "mainClassName": "蔬菜",
+    "crops": "http://data.coa.gov.tw:80/Service/OpenData/GAP/GAPClassCropData.aspx?classNo=1",
+    "plants": "http://data.coa.gov.tw:80/Service/OpenData/GAP/GAPClassPlantData.aspx?classNo=1",
+    "countyNo": "T",
+    "county": "屏東縣"
+  },
+  {
+    "labels": "http://data.coa.gov.tw:80/Service/OpenData/GAP/GAPClassLabelData.aspx?classNo=2",
+    "classNo": 2,
+    "className": "高雄市美濃區蔬菜產銷班第27班",
+    "orgNo": 195,
+    "orgName": "美濃區農會",
+    "mainClassNo": null,
+    "mainClassName": null,
+    "crops": "http://data.coa.gov.tw:80/Service/OpenData/GAP/GAPClassCropData.aspx?classNo=2",
+    "plants": "",
+    "countyNo": null,
+    "county": null
+  }]`;
+
+    jsonString = jsonString.replace(/\r\n/g, "");  //將\r\n 轉為空
+    let person = JSON.parse(jsonString);  //先把字串轉物件
+    console.log("labels: " + person[1].labels + " 、" + " orgName: " + person[1].orgName); //印出要顯示的屬性
+
+    let date = JSON.parse(jsonString);
+    for (let i=0; i<date.length; i++){
+        console.log("orgNO: " +date[i].orgNo);
+    }
+
+    let str = 'abacdefghijklmnop';
+    str = str.replace('a', 'x');   //只會取代第一個找到的a
+    console.log(str);
+</script>

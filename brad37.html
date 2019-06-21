@@ -1,0 +1,21 @@
+<script>
+//function 就是以物件的方式在處理
+//建構式
+let f = function(){
+    this.a = 1;
+    this.b = 2;
+}
+
+let obj = new f();          //{a:1, b:2} 
+console.log(obj.a +":" + obj.b);    //顯示在開發人員工具內的 console
+
+//原型設定
+//增加 f 的屬性
+f.prototype.b = 3;
+f.prototype.c = 4;
+
+console.log(obj.a);  //一定是
+console.log(obj.b);  
+console.log(obj.c);  
+
+</script>

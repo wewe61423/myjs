@@ -1,0 +1,53 @@
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<h1 id='test1'>點我! 點我!</h1>
+<div id="container">
+    <h1>I am H1</h1>
+    <p>P1</p>
+    <hr>
+    <h1>I am H2</h1>
+    <p>P1</p>
+</div>
+<hr>
+<input type="button" value="GO!" id="go" /><br><br>
+<input type="text" class="inputText" /><br><br>
+<input type="text" class="inputText" /><br><br>
+<input type="text" class="inputText" /><br><br>
+<script>
+    // $(selector) => element(s)  選擇器選擇元素
+    // 若要選擇 h1 => $('h1), a => $('a') => 相當於使用 getElementBytag('a')
+    // 若針對 id 的項目選擇， id='test1' => $('#test1') => 相當於使用 getElementById('test1')
+    // class='group' => $('.group') => 相當於使用 getElementByClassName('group')
+    // $('#container p')
+
+    $('#test1').click(function(){   
+        //.click() 點擊下去會執行一件事，放在括號內
+        $('#test1').css('color', '#FF7F50').css('background-color', 'Gray');
+
+
+        let ps = $('p');
+        for (let p of ps){  //of >> 值
+            p.style.color = 'blue';
+            p.style.backgroundColor = 'yellow';
+        }
+        
+        $jObj = $(document.getElementById('container'));    //jQuery 的物件
+        $jObj.css('background-color', 'pink');
+
+    });    
+
+    let isClickDisable = false; //預設沒有被關掉
+    $('#go').click(function(){
+        isClickDisable = !isClickDisable;   //按下去反向
+        $(this).attr('disabled', isClickDisable);   //attr 可以設定該元素的屬性   
+        setTimeout(toClickEnable, 3*1000);  //間隔三秒後執行
+        $('.inputText').val('Hello, World');    //val = value(值)
+        
+    })
+
+    function toClickEnable(){   //讓按鈕可生效
+        isClickDisable = false;
+        $('#go').attr('disabled', isClickDisable);
+
+    }
+
+</script>

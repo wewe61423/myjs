@@ -1,0 +1,25 @@
+<script>
+//setTimeout
+let delay = 3000, i = 1;
+
+function doThing(){
+    if (delay <= 10){
+        doThing2();
+        return;
+    }
+    console.log(i++);
+    setTimeout(doThing, delay); 
+    delay -= delay/2;   //+= delay*2 越來越慢、+- = delay/2越來越快
+}
+
+function doThing2(){
+    if (delay >= 3000){
+        return;
+    }
+    console.log(i--);
+    setTimeout(doThing2, delay);
+    delay += delay*2;
+}
+doThing();
+
+</script>

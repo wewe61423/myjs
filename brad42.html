@@ -1,0 +1,45 @@
+<script src="bradapis.js"></script>
+<script>
+let person = {
+    name: 'Brad',
+    age: 18,
+    weight: 100,
+    bike: [
+        {
+            name: 'black',
+            speed: 10
+        },
+        {
+            name: 'yellow',
+            speed: 20
+        } //寫陣列代表很多台 bike
+    ],
+    eat: function(){
+        console.log("eat");
+    }  
+};
+
+let strPerson = JSON.stringify(person);
+console.log(strPerson);
+
+let person2 = JSON.parse(strPerson);    //將 strPerson 字串進行轉換
+console.log("型態為:" +　typeof person2);
+for (let key in person2){
+    console.log(key + ":" + person2[key]);
+}
+
+console.log(person === person2); //物件是否相同
+console.log(person2.name);
+console.log(person2.bike[1].name);   //看第一台 bike 的名字(0:black，1:yellow)
+
+person2.name = 'Eric';
+person2.bike[1].speed = 200;    //把速度改成 200
+console.log(person.name);           //原名
+console.log(person.bike[1].speed);  //原速度
+console.log(person2.name);          //改後的名字
+console.log(person2.bike[1].speed); //改後的速度
+
+let person3 = clone(person);
+person3.eat();
+
+</script>

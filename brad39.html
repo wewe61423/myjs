@@ -1,0 +1,65 @@
+<script src="bradapis.js"></script>
+<script>
+//方法的繼承關係
+//物件實體重要的是"屬性"
+let bike = {                    //非建構式
+    a : 11,
+    b : 22,
+    m1: function(){
+        console.log("bike:m1()" + this.a);
+    }
+}
+
+let person = {
+    name: 'Peggy',
+    mybike: Object.create(bike)
+}
+
+//不是建構式，不使用 new 的方法
+let b1 = Object.create(bike);   
+for (let key in b1){
+    console.log(key + ":" + b1[key]);
+}
+
+//建構式；這個方法等於 new Object()，因為 bike 非建構式，所以 console 不會顯示任何訊息
+let b2 = bike.constructor();    
+for (let key in b2){
+    console.log(key + ":" + b2[key]);
+}
+
+//建構式
+let b3 = clone(bike);    
+for (let key in b3){
+    console.log(key + ":" + b3[key]);
+}
+
+let p1 = clone(person);
+p1.name = "Peggy_Chen";
+p1.mybike.a = 18;
+console.log(p1.name + ":" + p1.mybike.a);   //Peggy_Chen:18
+
+
+let p2 = clone(p1);      //clone person or clone p1 都會產生相同的結果
+p2.name = 'Mike_Lu';
+p2.mybike.a = 30;
+console.log(p1.name + ":" + p1.mybike.a);   //Peggy_Chen:30
+console.log(p2.name + ":" + p2.mybike.a);   //Mike_Lu:30
+
+let p3 = Object.create(person);      
+p3.name = 'POKEMON3';
+p3.mybike.a = 9993;
+console.log(p3.name + ":" + p3.mybike.a);   //POKEMON3:9993
+
+let p4 = Object.create(person);      
+p4.name = 'POKEMON4';
+p4.mybike.a = 9994;
+console.log(p3.name + ":" + p3.mybike.a);   //POKEMON3:9994
+console.log(p4.name + ":" + p4.mybike.a);   //POKEMON4:9994
+
+console.log(p1.mybike === p2.mybike);   //true
+console.log(p2.mybike === p4.mybike);   //true
+
+p1.mybike.m1();     //p1 的 mybike 的 m1 方法
+p2.mybike.m1();     //p2 的 mybike 的 m1 方法
+
+</script>

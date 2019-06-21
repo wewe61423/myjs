@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>表格驗證</title>
+    <style>
+        .content{
+            height: 100%;
+            background: #717374;
+            font-family:Microsoft JhengHei;
+        }
+        html, body{
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+</head>
+<body>
+    <script src="bradapis.js"></script>
+    <script>
+        function gotoBackend(){
+            let account = document.getElementById('account').value;
+            let password1 = document.getElementById('password1').value;
+            let password2 = document.getElementById('password2').value;
+            let twid = document.getElementById('twid').value;
+
+            let ret = true; //預設是對的，再去檢查錯的
+
+            return true;
+        }
+
+        //檢查密碼是否相同
+        function checkSamePasswd(){     
+            let password1 = document.getElementById('password1').value;
+            let password2 = document.getElementById('password2').value;
+            if (password1.length >0 && password2.length >0 ){
+                if(password1 != password2){
+                    alert('請確認密碼，目前密碼長度不同!'); //onblue 失焦時就會檢查並跳出提醒
+                }
+            }
+        }
+
+
+
+
+    </script>
+    <div class="content">
+        <form id='myform' action="test1.php" onsubmit="return gotoBackend();" enctype="multipart/form-data" method="post">
+            【帳號】: <input type="text" id="Account" /><span> * 帳號至少八碼</span><br><br>
+            【密碼】: <input type="password" id="password1" onblur="checkSamePasswd()"/><span> * 密碼至少八碼(需含英文)</span><br><br>
+            【確認密碼】: <input type="password" id="password2" onblur="checkSamePasswd()"/><span> * 請再次確認密碼</span><br><br>
+            【身份證字號】: <input type="text" id="twid" /><span> * 請輸入身分證字號</span><br><br>
+            【備註】: <textarea id="memo"></textarea><br><br>
+            
+            <input type="file" /> 
+            <!-- 若有這個檔案格式，form 表單就一定要用 method="post" -->
+            
+            <input type="submit" value="送出" style="font-family:Microsoft JhengHei; 
+            background-color: #ecab95; color: #112f42; font-weight: bolder; height: 40px; border-radius: 6px;" />
+
+        </form>
+    </div>
+</body>
+</html>
